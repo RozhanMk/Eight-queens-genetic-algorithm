@@ -78,10 +78,10 @@ def print_solution(board):
         
 
 if __name__ == "__main__":
-    num_of_solutions = int(input())     # 1 - 92
+    num_of_solutions = int(input("How many answers do you want? choose from 1-92\n"))     # 1 - 92
     start = time.time()
     
-    n_pop = 20  # number of random boards for initial population(pop)
+    n_pop = 30  # number of random boards for initial population(pop)
     crossOver = 5
     pop = []
     pop = generate_parent(pop, n_pop)
@@ -100,7 +100,7 @@ if __name__ == "__main__":
         temp = [pop[element[0]] for element in best_parents[:3]] 
         pop = temp
 
-        # one of the best parents and one of the weak parents make a child.(generally 20 children)
+        # one of the best parents and one of the weak parents make a child.(generally 30 children)
         for parent1, parent2 in zip(best_parents, weak_parents):
             pop.append(crossover(parent1, parent2, crossOver))
             pop.append(crossover(parent2, parent1, crossOver))
